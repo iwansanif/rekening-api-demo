@@ -1,13 +1,20 @@
 {
   "name": "rekening-api-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "REST API Demo for Indonesian Bank Account Verification",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "rest-api",
+    "express",
+    "bank",
+    "rekening",
+    "demo"
+  ],
+  "author": "Iwan Bsanif",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
