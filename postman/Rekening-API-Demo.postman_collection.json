@@ -1,0 +1,66 @@
+{
+  "info": {
+    "name": "Rekening API Demo",
+    "_postman_id": "6c0b3b71-fb0f-4d18-a9fd-1d2d5d0d0001",
+    "description": "Demo REST API Cek Nama Rekening",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "x-api-key",
+            "value": "{{api_key}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bank_code\":\"bca\",\n  \"account_number\":\"1234567890\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/check-account",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "check-account"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:3000"
+    },
+    {
+      "key": "api_key",
+      "value": "demo123"
+    }
+  ]
+}
