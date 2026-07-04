@@ -1,11 +1,28 @@
+const AccountService = require('../services/account.service');
+
 exports.checkAccount = async (req, res) => {
+
+    const {
+        bank_code,
+        account_number
+    } = req.body;
+
+    const result = await AccountService.checkAccount(
+        bank_code,
+        account_number
+    );
 
     return res.status(200).json({
         success: true,
-        message: "Endpoint is ready",
+        message: result.valid
+            ? 'Account found'
+            : 'Account not found',
         data: {
-            bank_code: req.body.bank_code || null,
-            account_number: req.body.account_number || null
+            bank_code,
+            account_number,
+            bank_name: result.bank_name,
+            account_name: result.account_name,
+            valid: result.valid
         },
         timestamp: new Date().toISOString()
     });
