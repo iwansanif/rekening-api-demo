@@ -1,4 +1,8 @@
+const logger = require('../utils/logger');
+
 module.exports = (err, req, res, next) => {
+
+    logger.error(err.stack || err.message);
 
     console.error(err);
 

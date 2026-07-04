@@ -23,6 +23,10 @@ const limiter = rateLimit({
     legacyHeaders: false
 });
 
+app.use(morgan('dev'));
+
+app.use(require('./middlewares/access-log.middleware'));
+
 app.use(limiter);
 
 app.use(apiKeyMiddleware);
