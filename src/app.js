@@ -1,18 +1,11 @@
 const express = require('express');
 
+const routes = require('./routes');
+
 const app = express();
 
 app.use(express.json());
 
-app.get('/health', (req, res) => {
-
-    res.status(200).json({
-        success: true,
-        message: 'API is running',
-        version: '1.0.0',
-        timestamp: new Date().toISOString()
-    });
-
-});
+app.use(routes);
 
 module.exports = app;
