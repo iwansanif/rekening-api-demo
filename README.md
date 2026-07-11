@@ -1,3 +1,72 @@
+# Rekening API Demo v1.0.0
+
+Demo REST API untuk validasi rekening bank.
+
+Aplikasi ini mensimulasikan proses pengecekan nomor rekening dengan input:
+
+- Kode bank
+- Nomor rekening
+
+Output yang diberikan:
+
+- Status validasi rekening
+- Nama bank
+- Nama pemilik rekening (demo)
+- Informasi rekening ditemukan atau tidak
+
+Project ini dibuat sebagai prototype/demo integrasi API validasi rekening.
+
+---
+
+# Fitur
+
+## API
+
+- REST API menggunakan Express.js
+- API Key Authentication
+- Request Validation
+- Rate Limiting
+- Access Logging
+- Error Handling
+- Swagger API Documentation
+
+
+## Web Demo
+
+- Form pengecekan rekening
+- Tampilan hasil validasi
+- Terintegrasi langsung dengan backend API
+
+
+---
+
+# Teknologi
+
+Backend:
+
+- Node.js
+- Express.js
+
+Security:
+
+- Helmet
+- CORS
+- API Key Middleware
+
+Documentation:
+
+- Swagger UI
+
+
+Frontend:
+
+- HTML
+- JavaScript
+
+
+---
+
+# Struktur Project
 📌 Rekening API Demo
 
 REST API sederhana untuk validasi rekening bank Indonesia menggunakan Node.js (Express).
@@ -122,9 +191,4 @@ Test /health
 Test /api/check-account
 Cek Swagger
 Cek Postman
-🧠 Arsitektur
-Route → Middleware → Controller → Service → Response
-📌 Catatan
-Project ini menggunakan mock provider
-Siap diganti ke API real (bank/e-wallet provider)
-Struktur sudah production-ready pattern
+🧠 Arsi
