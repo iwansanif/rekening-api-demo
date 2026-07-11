@@ -3,6 +3,8 @@
 <head>
     <title>Rekening Validation Demo</title>
 
+    <link rel="icon" href="favicon.ico">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -100,7 +102,7 @@
     placeholder="Masukkan nomor rekening">
 
 
-<button onclick="checkAccount()">
+<button id="checkButton">
     CEK REKENING
 </button>
 
@@ -113,100 +115,7 @@
 </div>
 
 
-<script>
-
-async function checkAccount(){
-
-    const bank =
-        document.getElementById("bank").value;
-
-
-    const account =
-        document.getElementById("account").value;
-
-
-    const result =
-        document.getElementById("result");
-
-
-    result.innerHTML = "Memproses...";
-
-
-    try {
-
-        const response = await fetch(
-                "/api/check-account",
-            {
-                method:"POST",
-
-                headers:{
-                    "Content-Type":"application/json",
-                    "x-api-key":"demo123"
-                },
-
-                body:JSON.stringify({
-
-                    bank_code:bank,
-
-                    account_number:account
-
-                })
-            }
-        );
-
-
-        const data = await response.json();
-
-
-        if(data.data.valid){
-
-            result.innerHTML = `
-            <h3>Hasil</h3>
-
-            Bank :
-            ${data.data.bank_name}
-            <br>
-
-            Nama :
-            ${data.data.account_name}
-            <br>
-
-            Status :
-            <span class="valid">
-            VALID
-            </span>
-            `;
-
-        }
-        else {
-
-            result.innerHTML = `
-            <h3>Hasil</h3>
-
-            Rekening tidak ditemukan
-
-            <br>
-
-            Status :
-            <span class="invalid">
-            INVALID
-            </span>
-            `;
-
-        }
-
-
-    }
-    catch(error){
-
-        result.innerHTML =
-        "Gagal terhubung ke API";
-
-    }
-
-}
-
-</script>
+<script src="app.js"></script>
 
 
 </body>
