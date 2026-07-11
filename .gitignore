@@ -24,3 +24,5 @@ temp/
 
 # npm
 npm-debug.log*
+
+.git/

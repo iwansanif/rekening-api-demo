@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rekening Validation Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px #ccc;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background: #004999;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+
+        .valid {
+            color: green;
+            font-weight: bold;
+        }
+
+        .invalid {
+            color: red;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>
+    Rekening Validation Demo
+</h2>
+
+<label>
+    Bank
+</label>
+
+<select id="bank">
+    <option value="bca">
+        BCA
+    </option>
+
+    <option value="mandiri">
+        Mandiri
+    </option>
+
+</select>
+
+
+<label>
+    Nomor Rekening
+</label>
+
+<input 
+    id="account"
+    placeholder="Masukkan nomor rekening">
+
+
+<button onclick="checkAccount()">
+    CEK REKENING
+</button>
+
+
+<div class="result" id="result">
+    Hasil pengecekan akan tampil di sini
+</div>
+
+
+</div>
+
+
+<script>
+
+async function checkAccount(){
+
+    const bank =
+        document.getElementById("bank").value;
+
+
+    const account =
+        document.getElementById("account").value;
+
+
+    const result =
+        document.getElementById("result");
+
+
+    result.innerHTML = "Memproses...";
+
+
+    try {
+
+        const response = await fetch(
+                "/api/check-account",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json",
+                    "x-api-key":"demo123"
+                },
+
+                body:JSON.stringify({
+
+                    bank_code:bank,
+
+                    account_number:account
+
+                })
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if(data.data.valid){
+
+            result.innerHTML = `
+            <h3>Hasil</h3>
+
+            Bank :
+            ${data.data.bank_name}
+            <br>
+
+            Nama :
+            ${data.data.account_name}
+            <br>
+
+            Status :
+            <span class="valid">
+            VALID
+            </span>
+            `;
+
+        }
+        else {
+
+            result.innerHTML = `
+            <h3>Hasil</h3>
+
+            Rekening tidak ditemukan
+
+            <br>
+
+            Status :
+            <span class="invalid">
+            INVALID
+            </span>
+            `;
+
+        }
+
+
+    }
+    catch(error){
+
+        result.innerHTML =
+        "Gagal terhubung ke API";
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
