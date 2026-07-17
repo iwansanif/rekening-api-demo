@@ -1,0 +1,61 @@
+const fs = require('fs').promises;
+const path = require('path');
+
+const BaseRepository = require('./base.repository');
+
+class JsonRepository extends BaseRepository {
+
+    constructor(filename) {
+
+        super();
+
+        this.filename = path.join(
+            __dirname,
+            '..',
+            'data',
+            filename
+        );
+
+    }
+
+    async read() {
+
+        try {
+
+            const content =
+                await fs.readFile(
+                    this.filename,
+                    'utf8'
+                );
+
+            return JSON.parse(content);
+
+        }
+
+        catch {
+
+            return [];
+
+        }
+
+    }
+
+    async write(data) {
+
+        await fs.writeFile(
+
+            this.filename,
+
+            JSON.stringify(
+                data,
+                null,
+                4
+            )
+
+        );
+
+    }
+
+}
+
+module.exports = JsonRepository;
