@@ -9,6 +9,9 @@ module.exports = (req, res, next) => {
 
     const apiKey = req.headers['x-api-key'];
 
+    console.log("Headers:", req.headers);
+    console.log("API Key:", apiKey);
+
     if (!apiKey) {
         return res.status(401).json({
             success: false,

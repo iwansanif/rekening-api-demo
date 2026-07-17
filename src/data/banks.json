@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "code": "002",
+        "short_name": "BRI",
+        "name": "Bank Rakyat Indonesia",
+        "active": true
+    },
+    {
+        "id": 2,
+        "code": "008",
+        "short_name": "Mandiri",
+        "name": "Bank Mandiri",
+        "active": true
+    },
+    {
+        "id": 3,
+        "code": "009",
+        "short_name": "BNI",
+        "name": "Bank Negara Indonesia",
+        "active": true
+    },
+    {
+        "id": 4,
+        "code": "011",
+        "short_name": "Danamon",
+        "name": "Bank Danamon Indonesia",
+        "active": true
+    },
+    {
+        "id": 5,
+        "code": "013",
+        "short_name": "Permata",
+        "name": "Bank Permata",
+        "active": true
+    },
+    {
+        "id": 6,
+        "code": "014",
+        "short_name": "BCA",
+        "name": "Bank Central Asia",
+        "active": true
+    },
+    {
+        "id": 7,
+        "code": "016",
+        "short_name": "Maybank",
+        "name": "Maybank Indonesia",
+        "active": true
+    },
+    {
+        "id": 8,
+        "code": "019",
+        "short_name": "Panin",
+        "name": "Panin Bank",
+        "active": true
+    },
+    {
+        "id": 9,
+        "code": "022",
+        "short_name": "CIMB",
+        "name": "CIMB Niaga",
+        "active": true
+    },
+    {
+        "id": 10,
+        "code": "028",
+        "short_name": "OCBC",
+        "name": "OCBC Indonesia",
+        "active": true
+    }
+]
