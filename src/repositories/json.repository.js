@@ -56,6 +56,20 @@ class JsonRepository extends BaseRepository {
 
     }
 
+    async getNextId() {
+
+        const data = await this.read();
+
+        if (data.length === 0) {
+            return 1;
+        }
+
+        return Math.max(
+            ...data.map(item => item.id)
+        ) + 1;
+
+    }
+
 }
 
 module.exports = JsonRepository;

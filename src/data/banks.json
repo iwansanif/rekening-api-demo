@@ -68,5 +68,14 @@
         "short_name": "OCBC",
         "name": "OCBC Indonesia",
         "active": true
+    },
+    {
+        "code": "451",
+        "short_name": "SAGA",
+        "name": "Bank Saga Indonesia Tbk",
+        "active": false,
+        "created_at": "2026-07-17T10:51:47.359Z",
+        "updated_at": "2026-07-17T10:52:09.151Z",
+        "id": 11
     }
 ]
