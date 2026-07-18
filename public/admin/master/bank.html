@@ -3,22 +3,21 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Master Bank</title>
-
-
-<link 
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-rel="stylesheet">
+    <title>Master Bank</title>
 
 
-<link 
-href="../assets/css/style.css"
-rel="stylesheet">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
+
+    <link 
+        href="../assets/css/style.css"
+        rel="stylesheet">
 
 </head>
 
@@ -28,168 +27,265 @@ rel="stylesheet">
 
 <div class="container-fluid">
 
-
-<div class="row">
-
-
-<!-- Sidebar -->
-
-<div class="col-md-3 col-lg-2 sidebar p-3">
+    <div class="row">
 
 
-<h4>
-Rekening API
-</h4>
+        <!-- Sidebar -->
+
+        <div class="col-md-3 col-lg-2 sidebar p-3">
+
+            <h4>
+                Rekening API
+            </h4>
+
+            <hr>
 
 
-<hr>
+            <ul class="nav flex-column">
+
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="../index.html">
+
+                        Dashboard
+
+                    </a>
+
+                </li>
 
 
-<ul class="nav flex-column">
+                <li class="nav-item">
+
+                    <a class="nav-link active"
+                       href="bank.html">
+
+                        Master Bank
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
 
 
-<li class="nav-item">
 
-<a class="nav-link"
-href="../index.html">
+        <!-- Content -->
 
-Dashboard
-
-</a>
-
-</li>
+        <div class="col-md-9 col-lg-10 p-4">
 
 
-<li class="nav-item">
+            <div class="d-flex justify-content-between align-items-center">
 
-<a class="nav-link active"
-href="bank.html">
-
-Master Bank
-
-</a>
-
-</li>
+                <h2>
+                    Master Bank
+                </h2>
 
 
-</ul>
+                <button 
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#addBankModal">
+
+                    Tambah Bank
+
+                </button>
+
+
+            </div>
+
+
+            <hr>
+
+
+            <table class="table table-bordered table-striped">
+
+
+                <thead class="table-dark">
+
+                    <tr>
+
+                        <th>No</th>
+
+                        <th>Kode</th>
+
+                        <th>Singkatan</th>
+
+                        <th>Nama Bank</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody id="bankTable">
+
+
+                    <tr>
+
+                        <td colspan="5"
+                            class="text-center">
+
+                            Loading...
+
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </div>
 
 
 </div>
 
 
 
-<!-- Content -->
+<!-- Modal Tambah Bank -->
 
-<div class="col-md-9 col-lg-10 p-4">
-
-
-<div class="d-flex justify-content-between">
+<div class="modal fade" id="addBankModal" tabindex="-1">
 
 
-<h2>
-Master Bank
-</h2>
+    <div class="modal-dialog">
 
 
-<button class="btn btn-primary">
+        <div class="modal-content">
 
-Tambah Bank
 
-</button>
+            <div class="modal-header">
+
+
+                <h5 class="modal-title">
+
+                    Tambah Bank
+
+                </h5>
+
+
+                <button 
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Kode Bank
+
+                    </label>
+
+
+                    <input 
+                        type="text"
+                        id="bankCode"
+                        class="form-control">
+
+                </div>
+
+
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Singkatan
+
+                    </label>
+
+
+                    <input 
+                        type="text"
+                        id="bankShortName"
+                        class="form-control">
+
+                </div>
+
+
+
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+
+                        Nama Bank
+
+                    </label>
+
+
+                    <input 
+                        type="text"
+                        id="bankName"
+                        class="form-control">
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="modal-footer">
+
+
+                <button
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Batal
+
+                </button>
+
+
+                <button
+                    class="btn btn-primary"
+                    onclick="createBank()">
+
+                    Simpan
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
 
 
 </div>
 
 
-<hr>
 
-
-<table class="table table-bordered table-striped">
-
-
-<thead class="table-dark">
-
-<tr>
-
-<th>No</th>
-
-<th>Kode</th>
-
-<th>Singkatan</th>
-
-<th>Nama Bank</th>
-
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-
-<tbody id="bankTable">
-
-
-<tr>
-
-<td colspan="5"
-class="text-center">
-
-Loading...
-
-</td>
-
-</tr>
-
-
-</tbody>
-
-
-</table>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-</body>
-
-</html>
-
-<td colspan="5"
-class="text-center">
-
-Loading...
-
-</td>
-
-</tr>
-
-
-</tbody>
-
-
-</table>
-
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
+<script 
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+</script>
 
 
 <script src="../assets/js/bank.js"></script>

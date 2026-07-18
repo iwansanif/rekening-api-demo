@@ -101,3 +101,90 @@ async function loadBanks() {
 
 
 loadBanks();
+
+async function createBank(){
+
+
+    const data = {
+
+        code:
+        document.getElementById("bankCode").value,
+
+        short_name:
+        document.getElementById("bankShortName").value,
+
+        name:
+        document.getElementById("bankName").value
+
+    };
+
+
+    try {
+
+
+        const response = await fetch(
+
+            window.BANK_API_URL,
+
+            {
+
+                method:"POST",
+
+                headers:{
+
+                    "Content-Type":"application/json",
+
+                    "x-api-key":
+                    window.BANK_API_KEY
+
+                },
+
+                body:
+                JSON.stringify(data)
+
+            }
+
+        );
+
+
+        const result =
+        await response.json();
+
+
+
+        console.log(result);
+
+
+
+        if(result.success){
+
+
+            alert("Bank berhasil ditambahkan");
+
+
+            location.reload();
+
+
+        }
+
+        else {
+
+
+            alert(result.message);
+
+
+        }
+
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert("Terjadi kesalahan");
+
+    }
+
+
+}
